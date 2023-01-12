@@ -16,7 +16,6 @@ export default function signin() {
     username: Yup.string().required('Username is required'),
     password: Yup
       .string()
-     
       .min(3)
       .max(10)
       .required('Password is required'),
@@ -45,23 +44,6 @@ export default function signin() {
   });
   return (
     <div>
-      <div className="text-center mt-24">
-        <div className="flex items-center justify-center">
-          <img
-            className="h-10 w-auto"
-            src="../assets/images/codeid.png"
-            alt="codeid"
-          />
-        </div>
-        <h2 className="text-4xl tracking-tight">
-          Sign in into your account
-        </h2>
-        <span className="text-sm">or{' '}
-          <Link href="/signup" className="font-medium text-indigo-600 hover:text-indigo-500">
-            sign up your account
-          </Link>
-        </span>
-      </div>
       <div className="flex justify-center my-2 mx-4 md:mx-0">
         <form className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
           <div className="flex flex-wrap -mx-3 mb-6">
