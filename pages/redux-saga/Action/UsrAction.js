@@ -10,6 +10,21 @@ export const doGetSigninSuccess = (payload) =>({
     payload
 })
 
+export const doPushSignoutRequest = (payload) => ({
+    type: ActionType.POST_SIGNOUT_REQUEST,
+    payload
+})
+
+export const doPushSignoutSuccess = (payload) => ({
+    type: ActionType.POST_SIGNOUT_SUCCESS,
+    payload
+})
+
+export const doPushSignoutFailed = (payload) => ({
+    type: ActionType.POST_SIGNOUT_FAILED,
+    payload
+})
+
 export const doMessageNotification = (message) =>({
     type: ActionType.MESSAGE_NOTIFICATION,
     payload : message

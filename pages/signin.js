@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { LockClosedIcon } from '@heroicons/react/solid'
 import * as Yup from "yup";
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function signin() {
   const dispatch = useDispatch();
@@ -44,6 +45,17 @@ export default function signin() {
   });
   return (
     <div>
+        <Head>
+            <title>GitHub Jobs</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main>
+        <br></br>
+            <h1 className='flex justify-center font-bold py-2 px-4 text-4xl font-bold dark:text-white'>Welcome to GitHub Jobs!</h1>
+            <h2 className='flex justify-center'>Please sign in to your account</h2>
+            <br></br>
+        </main>
       <div className="flex justify-center my-2 mx-4 md:mx-0">
         <form className="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
           <div className="flex flex-wrap -mx-3 mb-6">

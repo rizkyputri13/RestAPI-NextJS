@@ -1,6 +1,6 @@
 import {call,put} from 'redux-saga/effects'
 import UserApi from '../../api/UserApi'
-import { doGetSigninSuccess, doMessageNotification } from '../Action/UsrAction'
+import { doGetSigninSuccess, doMessageNotification, doPushSignoutFailed, doPushSignoutSuccess } from '../Action/UsrAction'
 import { setCookie, deleteCookie } from 'cookies-next';
 function* handleUsrSignin(action) {
     const {payload} = action;
@@ -20,6 +20,20 @@ function* handleUsrSignin(action) {
     }
 }
 
+function* handleUsrSignout(action) {
+    const {payload} = action;
+    try {
+        deleteCookie('access_token');
+        deleteCookie('profile');
+        yield put(doPushSignoutSuccess(payload));
+    } catch (error) {
+        yield put(doPushSignoutFailed(error));
+    }
+}
+
+
 export  {
     handleUsrSignin,
+    handleUsrSignout,
+    
 }

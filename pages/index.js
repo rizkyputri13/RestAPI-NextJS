@@ -1,12 +1,12 @@
 import LandingPage from "./component/layout/LandingPage";
 
-import JobList from "./jobList";
+import Coba from "./coba";
 
 export default function Home() {
   return (
     <div>
       <LandingPage>
-          <JobList/>
+          <Coba/>
       </LandingPage>
     </div>
   )

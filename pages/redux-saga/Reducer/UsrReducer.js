@@ -20,6 +20,10 @@ const UsrReducer = (state = INIT_STATE, action) => {
             return state
         case ActionType.GET_SIGNIN_SUCCESS:
             return GetSigninSuccess(state, action)
+        case ActionType.POST_SIGNOUT_REQUEST:
+            return state
+        case ActionType.POST_SIGNOUT_SUCCESS:
+            return PushSignoutSuccess(state, action)
         case ActionType.MESSAGE_NOTIFICATION:
             return ShowMessage(state, action)
         default:
@@ -34,6 +38,15 @@ const GetSigninSuccess = (state, action) => {
         message: ''
     }
 }
+
+const PushSignoutSuccess = (state, action) => {
+    return {
+        ...state,
+        UserProfile: null,
+        message: "",
+    }
+}
+
 
 const ShowMessage = (state, action) => {
     const { payload } = action
