@@ -10,7 +10,7 @@ const getJobs = async () => {
     }
 }
 
-const getJob = async () => {
+const getJob = async (id) => {
     try {
         const result = await axios.get(`${domain}/jobs/jobList/${id}`);
         return result;

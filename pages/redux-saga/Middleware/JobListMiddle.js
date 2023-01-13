@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects'
 import JobListApi from '../../api/JobListApi'
 import {
-    GetJoblistSuccess, GetJoblistFailed
+    GetJoblistSuccess, GetJoblistFailed, GetJobdetailSuccess, GetJobdetailFailed
 } from '../Action/JobListAction'
 
 function* handleGetJoblist() {
@@ -13,6 +13,17 @@ function* handleGetJoblist() {
     }
 }
 
+function* handleGetJobdetail() {
+    
+    try {
+        const result = yield call(JobListApi.getJob)
+        yield put(GetJobdetailSuccess(result))
+    } catch (error) {
+        yield put(GetJobdetailFailed(error))
+    }
+}
+
 export {
-    handleGetJoblist
+    handleGetJoblist,
+    handleGetJobdetail
 }
