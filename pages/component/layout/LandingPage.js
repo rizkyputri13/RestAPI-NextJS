@@ -9,6 +9,7 @@ import {
 } from '@heroicons/react/outline'
 import { useSelector, useDispatch } from 'react-redux';
 import { doPushSignoutRequest } from '../../redux-saga/Action/UsrAction'
+import { GetJoblistRequest } from '../../redux-saga/Action/JobListAction';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -20,7 +21,10 @@ export default function LandingPage(props) {
     const router = useRouter()
     const [user, setUser] = useState({})
     const { UserProfile } = useSelector(state => state.usrStated)
-
+    const {Jobs} = useSelector(state  => state.joblistStated)
+    useEffect(() => {
+       dispatch(GetJoblistRequest());;     
+    }, [])
     const onSignout = () => {
         dispatch(doPushSignoutRequest());
         router.reload()
@@ -176,8 +180,11 @@ export default function LandingPage(props) {
                 </Popover>
             </header>
             <main>
-
-            
+            {/* {
+                Jobs && Jobs.map(job => (
+                    <td>{job.company}</td>
+                ))
+            } */}
                 <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
                     {children}
                 </div>

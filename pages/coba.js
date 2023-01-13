@@ -5,23 +5,21 @@ import React from 'react';
 
 export default function Coba() {
 
-  
-    const dispatch = useDispatch();
-    const {jobs} = useSelector(state  => state.joblistStated)
-    useEffect(() => {
-       dispatch(GetJoblistRequest());;     
-    }, [])
+
+  const dispatch = useDispatch();
+  const { jobs } = useSelector(state => state.joblistStated)
+  useEffect(() => {
+    dispatch(GetJoblistRequest());;
+  }, [])
   return (
     <div>
       <table>
-    <tbody>
-      {Object.keys(jobs).map((data) => (
-        <tr>
-          <td>{data.title}</td>
-        </tr>
-      ))}
-    </tbody>
-    </table>
+        <tbody>
+          {jobs && jobs.data.map(job => (
+            <td>{job.company}</td>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

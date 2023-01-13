@@ -1,7 +1,7 @@
 import * as ActionTypeJoblist from '../Constants/JobListConstant'
 
 const INIT_STATE = {
-    jobs:[],
+    Jobs:[],
 }
 
 const JobListReducer =(state = INIT_STATE,action) => {

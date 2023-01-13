@@ -3,7 +3,7 @@ import { domain } from '../config/config';
 
 const getJobs = async () => {
     try {
-        const result = await axios.post(`${domain}/jobs/jobLists`);
+        const result = await axios.get(`${domain}/jobs/jobLists`);
         return result;
     } catch (error) {
         return error;
@@ -12,7 +12,7 @@ const getJobs = async () => {
 
 const getJob = async () => {
     try {
-        const result = await axios.post(`${domain}/jobs/jobList${id}`);
+        const result = await axios.get(`${domain}/jobs/jobList/${id}`);
         return result;
     } catch (error) {
         return error;
