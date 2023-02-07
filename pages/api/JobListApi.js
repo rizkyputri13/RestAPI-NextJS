@@ -19,4 +19,13 @@ const getJob = async (id) => {
     }
 }
 
-export default {getJobs, getJob}
+const searchJob = async (payload) => {
+    try {
+        const result = await axios.post(`${domain}/jobs/findJob`, payload);
+        return result;
+    } catch (error) {
+        return error;
+    }
+}
+
+export default {getJobs, getJob, searchJob}

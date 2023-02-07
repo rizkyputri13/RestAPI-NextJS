@@ -1,8 +1,9 @@
+import { GetSearchJobSuccess } from '../Action/JobListAction'
 import * as ActionTypeJoblist from '../Constants/JobListConstant'
 
 const INIT_STATE = {
-    Jobs:[],
-    Job:[]
+    jobs:[],
+    job:[]
 }
 
 const JobListReducer =(state = INIT_STATE,action) => {
@@ -15,6 +16,10 @@ const JobListReducer =(state = INIT_STATE,action) => {
             return {...state}
         case ActionTypeJoblist.GET_JOBDETAIL_SUCCESS:
             return GetJobdetailSuccessed(state,action)
+        case ActionTypeJoblist.SEARCH_JOB_REQUEST:
+            return {...state}
+        case ActionTypeJoblist.SEARCH_JOB_SUCCESS:
+            return GetSearchJobSuccessed(state,action)
         default:
             return state
     }
@@ -33,6 +38,13 @@ const GetJobdetailSuccessed = (state,action) => {
     return {
         ...state,
         job: action.payload
+    }
+}
+
+const GetSearchJobSuccessed = (state,action) => {
+    return {
+        ...state,
+        jobs: action.payload
     }
 }
 

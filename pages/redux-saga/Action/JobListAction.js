@@ -29,3 +29,18 @@ export const GetJobdetailFailed = (payload) => ({
     type:ActionTypeJoblist.GET_JOBDETAIL_FAILED,
     payload
 })
+
+export const GetSearchJobRequest = (payload) => ({
+    type: ActionTypeJoblist.SEARCH_JOB_REQUEST,
+    payload
+  })
+  
+  export const GetSearchJobSuccess = (payload) => ({
+    type: ActionTypeJoblist.SEARCH_JOB_SUCCESS,
+    payload
+  })
+  
+  export const GetSearchJobFailed = (payload) => ({
+    type: ActionTypeJoblist.SEARCH_JOB_FAILED,
+    payload
+  })
